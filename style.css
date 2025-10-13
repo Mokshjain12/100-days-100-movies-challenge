@@ -1,0 +1,608 @@
+/* ---------------------------------- */
+/* 1. Global Reset & Typography */
+/* ---------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+:root {
+    /* Define a strong color palette for a professional cinema look */
+    --primary-color: #E74C3C;       /* Bold Red Accent (Action/Highlight) */
+    --accent-color: #3498DB;        /* Action Blue (Buttons/Links) */
+    --background-dark: #0a0a0a;     /* Deep Dark Background */
+    --card-dark: #1e1e1e;           /* Card Background */
+    --text-light: #F0F3F4;          /* Main White Text */
+    --text-secondary: #BDC3C7;      /* Subtle Grey Text */
+    --gold-star: #FFC300;           /* Brighter Gold for rating */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    position: relative;
+    padding-top: 5px; 
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--text-light);
+}
+
+/* ---------------------------------- */
+/* 2. Animated Background (Advanced) */
+/* ---------------------------------- */
+
+#animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Complex Gradient for depth and motion effect */
+    background: radial-gradient(circle at top left, #300e0b 0%, var(--background-dark) 50%, #182333 100%);
+    background-size: 300% 300%;
+    animation: backgroundShift 40s infinite alternate ease-in-out;
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* ---------------------------------- */
+/* 3. Header & Navigation */
+/* ---------------------------------- */
+
+.main-header {
+    background-color: rgba(30, 30, 30, 0.95);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    position: sticky; /* Always visible at the top */
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-size: 1.6em;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+#movieSearch {
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--text-secondary);
+    background-color: #333;
+    color: var(--text-light);
+    width: 350px;
+    transition: all 0.4s ease;
+    font-size: 1em;
+}
+
+#movieSearch:focus {
+    width: 400px; /* Expands on focus */
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+}
+
+/* ---------------------------------- */
+/* 4. Hero Section & Titles */
+/* ---------------------------------- */
+
+.hero-section {
+    padding: 100px 40px 50px 40px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3.8em;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+.hero-section p {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.section-title {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+.section-title::after {
+    content: '★';
+    display: block;
+    font-size: 1.5em;
+    color: var(--gold-star);
+    margin-top: 10px;
+}
+
+.results-info {
+    text-align: center;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* --- Sorting Dropdown Style --- */
+.sort-container {
+    text-align: center; 
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.sort-container label {
+    font-size: 1.1em;
+    font-weight: 700; 
+    color: var(--text-secondary);
+}
+#sortSelector {
+    padding: 10px 20px; 
+    border-radius: 20px; 
+    background-color: var(--card-dark); 
+    color: var(--text-light); 
+    border: 1px solid var(--accent-color); 
+    font-size: 1em;
+    cursor: pointer;
+    appearance: none; 
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F0F3F4'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+}
+
+
+/* ---------------------------------- */
+/* 5. Movie Grid & Card (Premium) */
+/* ---------------------------------- */
+
+.movie-list-container {
+    padding: 20px 50px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.movie-grid {
+    display: grid;
+    /* Responsive grid with a minimum card width of 300px */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 40px;
+}
+
+.movie-card {
+    background-color: var(--card-dark);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    /* Advanced Hover Transition */
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+}
+
+/* PREMIUM Hover Effect */
+.movie-card:hover {
+    transform: translateY(-20px) scale(1.05);
+    box-shadow: 0 25px 40px rgba(52, 152, 219, 0.8); /* Accent blue shadow */
+    z-index: 10; 
+}
+
+.day-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--primary-color);
+    padding: 8px 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: filter 0.5s ease;
+}
+
+.movie-card:hover .movie-poster {
+    filter: brightness(0.8) grayscale(0.2);
+}
+
+.movie-info {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.movie-info h3 {
+    font-size: 1.6em;
+    margin-bottom: 5px;
+    color: var(--text-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-rating {
+    font-weight: 700;
+    color: var(--gold-star);
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* Download Button in Card */
+.card-download-button {
+    display: block;
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: transform 0.5s, opacity 0.5s;
+    border-radius: 0 0 15px 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(100%); /* Start hidden */
+}
+
+.movie-card:hover .card-download-button {
+    transform: translateY(0); /* Slide up on hover */
+    opacity: 1;
+}
+
+.card-download-button:hover {
+    background-color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* --- Animation Class --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* --- No Results Message --- */
+.no-results {
+    grid-column: 1 / -1; 
+    font-size: 1.8em; 
+    text-align: center; 
+    color: var(--text-secondary);
+    padding: 50px 0;
+    font-weight: 600;
+}
+
+/* ---------------------------------- */
+/* 6. Modal/Pop-up Styles for SPA (Single Page Application) */
+/* ---------------------------------- */
+
+.modal {
+    display: none; /* Default hidden */
+    position: fixed; 
+    z-index: 2000; /* Always on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.95); 
+    backdrop-filter: blur(5px); 
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--card-dark);
+    margin: 5% auto; 
+    padding: 30px 50px;
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 1100px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.9);
+    position: relative;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-button {
+    color: var(--text-secondary);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+    transition: color 0.3s;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* --- Modal Detail Styles (Reused from previous plans) --- */
+.day-tag {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.4em;
+    font-weight: 800;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.main-details {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.detail-poster {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    flex-shrink: 0;
+}
+
+#modalMovieTitle {
+    font-size: 3.5em;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.stats-bar {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #333;
+    flex-wrap: wrap; 
+}
+
+.stat-item {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.stat-item i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.rating-detail {
+    color: var(--gold-star);
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 18px 40px;
+    margin-top: 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.4em;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.download-button:hover {
+    background-color: #2980B9;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.5);
+}
+
+/* Screenshots Gallery */
+.screenshot-gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.screenshot-item {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s, border-color 0.3s;
+    flex-shrink: 0;
+    cursor: pointer;
+    border: 3px solid transparent;
+}
+
+.screenshot-item:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #333;
+    margin: 50px 0;
+}
+
+
+/* ---------------------------------- */
+/* 7. Footer & Responsive Design */
+/* ---------------------------------- */
+
+footer {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+/* --- Tablet Optimization (1024px) --- */
+@media (max-width: 1024px) {
+    /* Main Grid */
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    /* MODAL: Vertical Stack for Tablet */
+    .main-details {
+        flex-direction: column; /* Poster upar, Details neeche */
+        align-items: center;
+        gap: 30px; 
+        text-align: center;
+    }
+    
+    /* Remove sticky on Tablet */
+    .text-details {
+        position: static;
+        width: 100%;
+    }
+    
+    .detail-poster {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+    }
+    
+    #modalMovieTitle {
+        font-size: 2.5em;
+    }
+    .stats-bar {
+        justify-content: center;
+    }
+    
+    .screenshot-item {
+        width: 280px; 
+        height: 160px;
+    }
+    .modal-content {
+        padding: 30px;
+        margin: 20px auto; 
+    }
+}
+
+/* --- Mobile Fix (768px and below) --- */
+@media (max-width: 768px) {
+    /* Header/Search */
+    .main-header { 
+        flex-direction: column; 
+        padding: 15px 20px; 
+        gap: 10px;
+    }
+    .logo a {
+        font-size: 1.4em;
+    }
+    #movieSearch { 
+        width: 100%; 
+        max-width: none; 
+        padding: 10px 15px;
+    }
+    .hero-section h1 { 
+        font-size: 2.2em;
+    }
+    
+    /* Main Grid: Single Column (Scroll-Down) */
+    .movie-grid {
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+        padding: 0 15px;
+    }
+    
+    .movie-card {
+        max-width: 400px; 
+        margin: 0 auto; 
+    }
+    
+    .movie-card .movie-poster {
+        height: 450px; 
+    }
+    
+    /* MODAL: Full-screen mobile view */
+    .modal-content {
+        width: 100%;
+        margin: 0;
+        min-height: 100vh; /* Full screen height */
+        border-radius: 0;
+        padding: 20px 15px; 
+    }
+    
+    .main-details {
+        text-align: left; /* Text alignment fix for mobile */
+    }
+
+    /* Stats bar: Vertical stack and left align */
+    .stats-bar {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .detail-poster {
+        max-width: 100%; 
+        height: auto;
+    }
+    
+    .screenshot-item {
+        width: 300px; 
+        height: 220px;
+    }
+}
+
+/* --- Extra Small Mobile Fix (480px) --- */
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 1.8em;
+    }
+    .download-button {
+        padding: 15px 25px;
+        font-size: 1.1em;
+    }
+}

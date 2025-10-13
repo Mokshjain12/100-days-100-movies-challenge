@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 100 Days 100 Movies | Challenge Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="animated-bg"></div>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html"><i class="fas fa-video"></i> 100 DAYS 100 MOVIES</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="movieSearch" placeholder="🔎 Day, Movie Name, या Genre सर्च करें..." autocomplete="off">
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <h1>THE ULTIMATE CINEMATIC CHALLENGE</h1>
+        <p>100 Days. 100 Incredible Cinematic Journeys. Start Exploring!</p>
+    </section>
+
+    <div class="sort-container">
+        <label for="sortSelector">Sort By:</label>
+        <select id="sortSelector">
+            <option value="day-asc">Day (1 → 100)</option>
+            <option value="rating-desc">Rating (Highest)</option>
+            <option value="year-desc">Year (Newest)</option>
+            <option value="title-asc">Title (A-Z)</option>
+        </select>
+    </div>
+
+    <section class="movie-list-container">
+        <h2 class="section-title">✨ Featured Collection</h2>
+        
+        <p id="searchResultsCount" class="results-info"></p>
+
+        <div class="movie-grid" id="movieGrid">
+        </div>
+    </section>
+
+    <div id="movieDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            
+            <div class="day-tag" id="modalDayLabel">DAY XX</div>
+
+            <div class="main-details">
+                <img id="modalMoviePoster" src="" alt="Movie Poster" class="detail-poster">
+
+                <div class="text-details">
+                    <h1 id="modalMovieTitle">Movie Title Loading...</h1>
+                    
+                    <div class="stats-bar">
+                        <div class="stat-item"><i class="fas fa-calendar-alt"></i> Year: <span id="modalReleaseYear"></span></div>
+                        <div class="stat-item"><i class="fas fa-video"></i> Genre: <span id="modalMovieGenre"></span></div>
+                        <div class="stat-item"><i class="fas fa-user-tie"></i> Director: <span id="modalMovieDirector"></span></div>
+                        <div class="stat-item"><i class="fas fa-star rating-detail"></i> My Rating: <span class="rating-detail" id="modalMovieRating"></span></div>
+                    </div>
+
+                    <h2>Plot Summary</h2>
+                    <p id="modalMoviePlot" style="color: var(--text-secondary); margin-bottom: 30px;"></p>
+
+                    <a href="#" class="download-button" id="modalDownloadButton" target="_blank">
+                        <i class="fas fa-cloud-download-alt"></i> Download Movie
+                    </a>
+                </div>
+            </div>
+
+            <hr>
+
+            <h2 class="section-title">Key Screenshots</h2>
+             <div class="screenshot-gallery" id="modalScreenshotGallery">
+            </div>
+        </div>
+    </div> 
+    
+    <footer>
+        <p>&copy; 2025 The 100 Days Challenge.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
