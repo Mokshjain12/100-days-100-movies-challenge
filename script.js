@@ -24,7 +24,7 @@ const moviesData = [
         director: "Francis Ford Coppola",
         poster: "images/day_2/suzume.jpg",
         screenshots: ["images/day_2/ss_1.jpg", "images/day_2/ss_2.jpg", "images/day_2/ss_3.jpg"],
-        downloadLink: "https://yourdownloadlink.com/movie_002"
+        downloadLink: "https://gplinks.co/eQviE"
     },
     {
         day: 3,
@@ -178,4 +178,5 @@ function setupHomePage() {
 
     // Page load hone par pehli baar movies dikhayein
     handleFilterAndSort();
+
 }
