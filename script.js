@@ -14,11 +14,11 @@ const moviesData = [
     {
         day: 2,
         title: "Suzume",
-        year: 1972,
-        rating: 9.2,
-        genre: "Crime, Drama",
-        plot: "Ek umardaar sangathit apradh vansh ka neta apne gupt samrajya ka niyantran apne anichhuk bete ko deta hai.",
-        director: "Francis Ford Coppola",
+        year: 2022,
+        rating: 8.0,
+        genre: "Drama, Idea",
+        plot: "A modern action adventure road story where a 17-year-old girl named Suzume helps a mysterious young man close doors from the other side that are releasing disasters all over in Japan.",
+        director: "Makoto Shinkai",
         poster: "images/day_2/suzume.jpg",
         screenshots: ["images/day_2/ss_1.jpg", "images/day_2/ss_2.jpg", "images/day_2/ss_3.jpg"],
         downloadLink: "https://gplinks.co/eQviE"
@@ -177,4 +177,5 @@ function setupHomePage() {
     handleFilterAndSort();
 
 }
+
 
