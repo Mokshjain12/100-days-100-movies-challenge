@@ -4,7 +4,7 @@ const moviesData = [
         title: "Your Name",
         year: 2016,
         rating: 8.5, 
-        dateSeen: "2024-06-13", 
+        dateSeen: "2025-10-13", 
         genre: "Drama, Romance, Fantasy",
         plot: "Two teenagers share a profound, magical connection upon discovering they are swapping bodies. Things manage to become even more complicated when the boy and girl decide to meet in person.",
         director: "Makoto Shinkai",
@@ -241,3 +241,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
