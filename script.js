@@ -25,6 +25,18 @@ const moviesData = [
     },
     {
         day: 3,
+        title: "A Silent Voice",
+        year: 2016,
+        rating: 9.5,
+        genre: "Romance, Drama",
+        plot: "A deaf girl, Shoko, is bullied by the popular Shoya. As Shoya continues to bully Shoko, the class turns its back on him. Shoko transfers and Shoya grows up as an outcast. Alone and depressed, the regretful Shoya finds Shoko to make amends.",
+        director: "Naoko Yamada",
+        poster: "images/day_3/A_Silent_Voice.jpg",
+        screenshots: ["images/day_3/ss_1.jpg", "images/day_3/ss_2.jpg", "images/day_3/ss_3.jpg"],
+        downloadLink: "https://gplinks.co/cg40M"
+    },
+    {
+        day: 4,
         title: "coming soon",
         year: 2008,
         rating: 9.0,
@@ -177,5 +189,6 @@ function setupHomePage() {
     handleFilterAndSort();
 
 }
+
 
 
