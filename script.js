@@ -40,17 +40,30 @@ const moviesData = [
     },
     {
         day: 4,
-        title: "coming soon",
-        year: 2008,
+        title: "I want to eat your pancreas",
+        year: 2018,
         rating: 9.0,
-        dateSeen: "2024-06-16",
-        genre: "Action, Crime, Thriller",
-        plot: "Jab The Joker naam ka khatra apne rahasyamay ateet se ubharta hai, toh woh Gotham ke logon par aafat aur afra-tafri macha deta hai.",
-        director: "Christopher Nolan",
-        poster: "images/poster_003.jpg",
-        screenshots: ["images/ss_003a.jpg", "images/ss_003b.jpg"],
-        downloadLink: "https://yourdownloadlink.com/movie_003"
+        dateSeen: "2025-10-16",
+        genre: "Animation, Drama, Family, Romance",
+        plot: "A high school student discovers one of his classmates, Sakura Yamauchi, is suffering from a terminal illness. This secret brings the two together, as she lives out her final moments.",
+        director: "Shin'ichirô Ushijima",
+        poster: "images/day_4/I_want_to_eat_your_pancreas.jpg",
+        screenshots: ["images/day_4/ss_1.jpg", "images/day_4/ss_2.jpg", "images/day_4/ss_3.jpg"],
+        downloadLink: "https://gplinks.co/ychd"
     },
+    {
+        day: 5,
+        title: "Coming Soon",
+        year: 2016,
+        rating: 9.5,
+        dateSeen: "2025-10-17",
+        genre: "Romance, Drama",
+        plot: "Coming Soon",
+        director: "Coming Soon",
+        poster: "images/day_5/A_Silent_Voice.jpg",
+        screenshots: ["images/day_5/ss_1.jpg", "images/day_5/ss_2.jpg", "images/day_5/ss_3.jpg"],
+        downloadLink: "###"
+    },   
 ];
 // --- End of Movie Data ---
 
@@ -241,4 +254,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
 
