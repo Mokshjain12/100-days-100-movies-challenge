@@ -1,3 +1,4 @@
+// --- 1. Movie Data (Updated with audioLink) ---
 const moviesData = [
     {
         day: 1,
@@ -10,7 +11,8 @@ const moviesData = [
         director: "Makoto Shinkai",
         poster: "images/day_1/your_name.jpg", 
         screenshots: ["images/day_1/ss_1.jpg", "images/day_1/ss_2.jpg", "images/day_1/ss_3.jpg"],
-        downloadLink: "https://gplinks.co/KJYI"
+        downloadLink: "https://gplinks.co/KJYI",
+        audioLink: "images/day_1/your_name.m4a"
     },
     {
         day: 2,
@@ -23,7 +25,8 @@ const moviesData = [
         director: "Makoto Shinkai",
         poster: "images/day_2/suzume.jpg",
         screenshots: ["images/day_2/ss_1.jpg", "images/day_2/ss_2.jpg", "images/day_2/ss_3.jpg"],
-        downloadLink: "https://gplinks.co/KJYI"
+        downloadLink: "https://gplinks.co/KJYI",
+        audioLink: "images/day_2/suzume.m4a"
     },
     {
         day: 3,
@@ -36,7 +39,8 @@ const moviesData = [
         director: "Naoko Yamada",
         poster: "images/day_3/A_Silent_Voice.jpg",
         screenshots: ["images/day_3/ss_1.jpg", "images/day_3/ss_2.jpg", "images/day_3/ss_3.jpg"],
-        downloadLink: "https://gplinks.co/cg40M"
+        downloadLink: "https://gplinks.co/cg40M",
+        audioLink: "images/day_3/A_Silent_Voice.m4a" 
     },
     {
         day: 4,
@@ -49,7 +53,8 @@ const moviesData = [
         director: "Shin'ichirô Ushijima",
         poster: "images/day_4/I_want_to_eat_your_pancreas.jpg",
         screenshots: ["images/day_4/ss_1.jpg", "images/day_4/ss_2.jpg", "images/day_4/ss_3.jpg"],
-        downloadLink: "https://gplinks.co/ychd"
+        downloadLink: "https://gplinks.co/ychd",
+        audioLink: "images/day_4/I_want_to_eat_your_pancreas.mp3"
     },
     {
         day: 5,
@@ -62,7 +67,8 @@ const moviesData = [
         director: "Coming Soon",
         poster: "images/day_5/A_Silent_Voice.jpg",
         screenshots: ["images/day_5/ss_1.jpg", "images/day_5/ss_2.jpg", "images/day_5/ss_3.jpg"],
-        downloadLink: "###"
+        downloadLink: "###",
+        audioLink: null
     },   
 ];
 // --- End of Movie Data ---
@@ -78,7 +84,6 @@ const noResultsGlobal = document.getElementById('noResultsGlobal');
 
 // Helper function to format rating (STARS REMOVED)
 function getRatingText(rating) {
-    // Ab sirf plain text rating dikhayega (e.g., 8.5 / 10)
     return `<span class="movie-rating">${rating.toFixed(1)} / 10</span>`;
 }
 
@@ -109,16 +114,14 @@ function sortMovies(movies, order) {
     return sorted;
 }
 
-// --- 4. Rendering Logic (MODIFIED to only use the 1-10 section) ---
+// --- 4. Rendering Logic ---
 function renderMovies(movies) {
     
-    // Clear the only existing container (for 1-10)
     const horizontalContainers = document.querySelectorAll('.horizontal-scroll-container');
     horizontalContainers.forEach(container => container.innerHTML = '');
 
     noResultsGlobal.style.display = 'none';
 
-    // Since only 1-10 section is present, all movies go to the first container
     const container1_10 = document.getElementById('day-range-1-10');
     const section1_10 = document.querySelector('.movie-section[data-range="1-10"]');
     
@@ -126,7 +129,6 @@ function renderMovies(movies) {
 
     if (container1_10) {
         movies.forEach(movie => {
-            // Check if movie is within the 1-10 range OR if search is active (to show all search results in 1-10)
             if (movie.day >= 1 && movie.day <= 10 || movieSearch.value) {
                 const movieCard = createMovieCard(movie);
                 container1_10.appendChild(movieCard);
@@ -134,7 +136,6 @@ function renderMovies(movies) {
             }
         });
 
-        // Toggle visibility of the 1-10 section based on search results
         if (totalRenderedMovies > 0 || !movieSearch.value) {
             section1_10.style.display = 'block';
         } else {
@@ -143,7 +144,6 @@ function renderMovies(movies) {
     }
 
 
-    // Handle Global No Results (for search)
     if (movieSearch.value && totalRenderedMovies === 0) {
         noResultsGlobal.style.display = 'block';
     } else {
@@ -154,13 +154,14 @@ function renderMovies(movies) {
 }
 
 
-// --- 5. Movie Card Creation (STARS REMOVED) ---
+// --- 5. Movie Card Creation ---
 function createMovieCard(movie) {
     const movieCard = document.createElement('div');
     movieCard.className = 'movie-card fade-in-up';
     movieCard.setAttribute('data-day', movie.day);
+    // Card click will now call the updated openModal
     movieCard.onclick = () => openModal(movie);
-
+    
     movieCard.innerHTML = `
         <div class="day-label">DAY ${String(movie.day).padStart(2, '0')}</div>
         <img src="${movie.poster}" alt="${movie.title} Poster" class="movie-poster">
@@ -168,23 +169,19 @@ function createMovieCard(movie) {
             <h3>${movie.title}</h3>
             ${getRatingText(movie.rating)} <div class="date-seen"><i class="far fa-calendar-alt"></i> Seen: ${formatDate(movie.dateSeen)}</div>
         </div>
-        <a href="${movie.downloadLink}" class="card-download-button" target="_blank" onclick="event.stopPropagation();">
-             <i class="fas fa-download"></i> Get Link
-        </a>
-    `;
+        
+        `;
     return movieCard;
 }
 
 
-// --- 6. Modal Functions (STARS REMOVED) ---
+// --- 6. Modal Functions (Updated for Stylish Audio Player) ---
 window.openModal = function(movie) {
     document.getElementById('modalDayLabel').textContent = `DAY ${String(movie.day).padStart(2, '0')}`;
     document.getElementById('modalMoviePoster').src = movie.poster;
     document.getElementById('modalMovieTitle').textContent = movie.title;
     
     document.getElementById('modalDateSeen').textContent = formatDate(movie.dateSeen);
-    
-    // RATING STARS REMOVED - Using plain text
     document.getElementById('modalMovieRating').textContent = `${movie.rating.toFixed(1)} / 10`; 
     
     document.getElementById('modalReleaseYear').textContent = movie.year;
@@ -193,6 +190,7 @@ window.openModal = function(movie) {
     document.getElementById('modalMoviePlot').textContent = movie.plot;
     document.getElementById('modalDownloadButton').href = movie.downloadLink;
 
+    // Screenshot Gallery
     const gallery = document.getElementById('modalScreenshotGallery');
     gallery.innerHTML = ''; 
     if (movie.screenshots && movie.screenshots.length > 0) {
@@ -206,12 +204,55 @@ window.openModal = function(movie) {
     } else {
         gallery.innerHTML = '<p style="color:var(--text-secondary);">No screenshots available.</p>';
     }
+    
+    // NEW: Stylish Audio Player Setup Logic
+    const audioContainer = document.getElementById('modalAudioPlayerContainer');
+    
+    // Clear existing content and remove any previous audio element
+    audioContainer.innerHTML = '<h2><i class="fas fa-music"></i> MOVIE INTRODUCTION (AUDIO)</h2>';
+    
+    if (movie.audioLink) {
+        // Audio available: create and append the audio element
+        const audioPlayer = document.createElement('audio');
+        audioPlayer.controls = true;
+        audioPlayer.className = 'audio-player';
+        audioPlayer.id = 'modalMovieAudioPlayer';
+
+        const source = document.createElement('source');
+        source.src = movie.audioLink;
+        source.type = 'audio/mpeg';
+
+        audioPlayer.appendChild(source);
+        audioContainer.appendChild(audioPlayer);
+        
+        audioContainer.style.display = 'block';
+
+        // Add the alert/popup on play
+        audioPlayer.onplay = () => {
+             alert("🚀 Download Now! Audio Sunte Hi Pop-up Aagya! Download Link Ready Hai!");
+        };
+
+    } else {
+        // Audio NOT available (Coming Soon)
+        const comingSoonText = document.createElement('p');
+        comingSoonText.className = 'audio-coming-soon';
+        comingSoonText.textContent = 'Audio Summary Coming Soon for this movie!';
+        audioContainer.appendChild(comingSoonText);
+        audioContainer.style.display = 'block'; // Show the container with the 'Coming Soon' message
+    }
 
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
 window.closeModal = function() {
+    // Stop the modal audio when closing the modal
+    const modalAudio = document.getElementById('modalMovieAudioPlayer');
+    if (modalAudio) {
+        modalAudio.pause();
+        modalAudio.currentTime = 0;
+    }
+
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
 }
@@ -222,7 +263,6 @@ function handleFilterAndSort() {
     const searchTerm = movieSearch.value.toLowerCase();
     const sortOrder = sortSelector.value;
 
-    // 1. Filtering Logic (Day search is working correctly)
     const filtered = moviesData.filter(movie => {
         const dayString = String(movie.day);
         const dateString = formatDate(movie.dateSeen).toLowerCase();
@@ -234,10 +274,8 @@ function handleFilterAndSort() {
                dateString.includes(searchTerm);
     });
     
-    // 2. Sorting Logic
     const sorted = sortMovies(filtered, sortOrder);
     
-    // 3. Rendering
     renderMovies(sorted);
 }
 
@@ -254,5 +292,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
-
-
