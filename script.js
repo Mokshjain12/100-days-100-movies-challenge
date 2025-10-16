@@ -81,6 +81,9 @@ const sortSelector = document.getElementById('sortSelector');
 const modal = document.getElementById('movieDetailModal');
 const searchResultsCount = document.getElementById('searchResultsCount');
 const noResultsGlobal = document.getElementById('noResultsGlobal');
+// NEW: Notification Element
+const downloadNotification = document.getElementById('downloadNotification');
+
 
 // Helper function to format rating (STARS REMOVED)
 function getRatingText(rating) {
@@ -174,8 +177,25 @@ function createMovieCard(movie) {
     return movieCard;
 }
 
+// NEW: Function to show animated notification
+function showDownloadNotification() {
+    downloadNotification.classList.remove('fade-out'); // Remove old fade-out
+    downloadNotification.style.display = 'block';
+    downloadNotification.classList.add('slide-up');
+    
+    // Hide after 3 seconds
+    setTimeout(() => {
+        downloadNotification.classList.remove('slide-up');
+        downloadNotification.classList.add('fade-out');
+        // Wait for fade-out to finish before setting display:none
+        setTimeout(() => {
+            downloadNotification.style.display = 'none';
+            downloadNotification.classList.remove('fade-out');
+        }, 500); // .5s matches CSS fade-out duration
+    }, 3000); // Display time: 3 seconds
+}
 
-// --- 6. Modal Functions (Updated for Stylish Audio Player) ---
+// --- 6. Modal Functions (Updated for Stylish Audio Player & Notification) ---
 window.openModal = function(movie) {
     document.getElementById('modalDayLabel').textContent = `DAY ${String(movie.day).padStart(2, '0')}`;
     document.getElementById('modalMoviePoster').src = movie.poster;
@@ -227,9 +247,9 @@ window.openModal = function(movie) {
         
         audioContainer.style.display = 'block';
 
-        // Add the alert/popup on play
+        // UPDATED: Call the new notification function on play
         audioPlayer.onplay = () => {
-             alert("🚀 Download Now! Audio Sunte Hi Pop-up Aagya! Download Link Ready Hai!");
+             showDownloadNotification();
         };
 
     } else {
