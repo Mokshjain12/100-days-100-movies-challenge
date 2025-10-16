@@ -15,6 +15,7 @@
     --gold-star: #FFC300;           /* Brighter Gold for rating */
     --instagram-pink: #C13584;      /* Instagram Accent */
     --section-separator: rgba(255, 255, 255, 0.1); /* Light separator */
+    --success-green: #27AE60;       /* NEW: Success Green for Notification */
 }
 
 * {
@@ -520,7 +521,7 @@ hr {
     margin: 40px 0;
 }
 
-/* --- NEW: Stylish Audio Section for Modal Detail (Updated Look) --- */
+/* --- Audio Section --- */
 
 /* Wrapper for the audio player */
 .audio-intro-container {
@@ -570,14 +571,53 @@ audio::-webkit-media-controls-play-button {
     padding: 10px 0 5px 0;
     text-align: center;
 }
-/* --- END NEW AUDIO STYLES --- */
+/* --- END AUDIO STYLES --- */
 
 
 /* ---------------------------------- */
-/* 8. Responsive Design (Mobile First) */
+/* 8. Download Notification Toast (NEW) */
 /* ---------------------------------- */
 
-/* --- Tablet/Desktop Optimization (769px and up) --- */
+.notification-toast {
+    display: none; /* Default hidden */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--success-green); /* Green color, as requested */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 3000; /* Modal se bhi upar */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(100%); /* Initial position for slide-up */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.notification-toast i {
+    font-size: 1.2em;
+}
+
+/* Animation Classes */
+.slide-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-out {
+    opacity: 0 !important;
+    transform: translateY(100%) !important;
+}
+
+
+/* ---------------------------------- */
+/* 9. Responsive Design (Mobile First) */
+/* ---------------------------------- */
+
 @media (min-width: 769px) {
     .main-header {
         padding: 20px 50px;
@@ -603,7 +643,6 @@ audio::-webkit-media-controls-play-button {
     }
 }
 
-/* --- Mobile Fix (768px and below) - Ensure Mobile-First is tight --- */
 @media (max-width: 768px) {
     /* Header/Search */
     .main-header { 
@@ -691,5 +730,14 @@ audio::-webkit-media-controls-play-button {
     .screenshot-item {
         width: 280px; 
         height: 160px;
+    }
+    
+    /* Notification position adjustment for mobile */
+    .notification-toast {
+        bottom: 10px;
+        right: 10px;
+        left: 10px; /* Full width mobile par */
+        text-align: center;
+        justify-content: center;
     }
 }
