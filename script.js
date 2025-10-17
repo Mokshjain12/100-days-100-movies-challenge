@@ -58,18 +58,32 @@ const moviesData = [
     },
     {
         day: 5,
+        title: "A Whisker Away",
+        year: 2020,
+        rating: 8.0,
+        dateSeen: "2025-10-17",
+        genre: "Animation, Romance, Melodrama, Adventure, Fantasy, Drama",
+        plot: "Miyo Sasaki is in love with her classmate Kento Hinode and tries repeatedly to get Kento's attention by transforming into a cat, but at some point, the boundary between herself and the cat becomes ambiguous.",
+        director: "Jun'ichi Satô, Tomotaka Shibayama",
+        poster: "images/day_5/a_whisker_away.jpg",
+        screenshots: ["images/day_5/ss_1.jpg", "images/day_5/ss_2.jpg", "images/day_5/ss_3.jpg"],
+        downloadLink: "https://gplinks.co/vawYVLq",
+        audioLink: "images/day_5/a_whisker_away.m4a"
+    },   
+    {
+        day: 6,
         title: "Coming Soon",
         year: 2016,
         rating: 9.5,
-        dateSeen: "2025-10-17",
+        dateSeen: "2025-10-18",
         genre: "Romance, Drama",
         plot: "Coming Soon",
         director: "Coming Soon",
-        poster: "images/day_5/A_Silent_Voice.jpg",
-        screenshots: ["images/day_5/ss_1.jpg", "images/day_5/ss_2.jpg", "images/day_5/ss_3.jpg"],
+        poster: "images/day_6/A_Silent_Voice.jpg",
+        screenshots: ["images/day_6/ss_1.jpg", "images/day_6/ss_2.jpg", "images/day_6/ss_3.jpg"],
         downloadLink: "###",
         audioLink: null
-    },   
+    },
 ];
 // --- End of Movie Data ---
 
@@ -312,3 +326,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
