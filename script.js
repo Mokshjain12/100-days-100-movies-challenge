@@ -72,6 +72,20 @@ const moviesData = [
     },   
     {
         day: 6,
+        title: "Weathering with You",
+        year: 2019,
+        rating: 8.0,
+        dateSeen: "2025-10-18",
+        genre: "Anime, Animation, Romance,",
+        plot: "Set during a period of exceptionally rainy weather, high-school boy Hodaka Morishima runs away from his troubled rural home to Tokyo and befriends an orphan girl who can manipulate the weather.",
+        director: "Makoto Shinkai",
+        poster: "images/day_6/weathering_with_you.jpg",
+        screenshots: ["images/day_6/ss_1.jpg", "images/day_6/ss_2.jpg", "images/day_6/ss_3.jpg"],
+        downloadLink: "https://gplinks.co/3mEl",
+        audioLink: "images/day_6/weathering_with_you.mp3"
+    },   
+    {
+        day: 7,
         title: "Coming Soon",
         year: 2016,
         rating: 9.5,
@@ -80,7 +94,7 @@ const moviesData = [
         plot: "Coming Soon",
         director: "Coming Soon",
         poster: "images/day_6/A_Silent_Voice.jpg",
-        screenshots: ["images/day_6/ss_1.jpg", "images/day_6/ss_2.jpg", "images/day_6/ss_3.jpg"],
+        screenshots: ["images/day_7/ss_1.jpg", "images/day_7/ss_2.jpg", "images/day_7/ss_3.jpg"],
         downloadLink: "###",
         audioLink: null
     },
@@ -326,4 +340,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
 
