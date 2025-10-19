@@ -86,15 +86,29 @@ const moviesData = [
     },   
     {
         day: 7,
+        title: "The Tunnel to Summer",
+        year: 2022,
+        rating: 8.5,
+        dateSeen: "2025-10-19",
+        genre: "Romance, Animation, Science fiction, Fantasy, Drama, Mystery, Supernatural",
+        plot: "In a sleepy country town, a traumatized boy and a transfer student from Tokyo stumble upon a time-bending tunnel that may grant them their every wish.",
+        director: "Tomohisa Taguchi",
+        poster: "images/day_7/the_tunnel_to_summer.jpg",
+        screenshots: ["images/day_7/ss_1.jpg", "images/day_7/ss_2.png", "images/day_7/ss_3.jpg"],
+        downloadLink: "https://gplinks.co/ZCGjW2ee",
+        audioLink: "images/day_7/the_tunnel_to_summer.m4a"
+    },   
+    {
+        day: 8,
         title: "Coming Soon",
         year: 2016,
         rating: 9.5,
-        dateSeen: "2025-10-18",
+        dateSeen: "2025-10-20",
         genre: "Romance, Drama",
         plot: "Coming Soon",
         director: "Coming Soon",
-        poster: "images/day_6/A_Silent_Voice.jpg",
-        screenshots: ["images/day_7/ss_1.jpg", "images/day_7/ss_2.jpg", "images/day_7/ss_3.jpg"],
+        poster: "images/day_8/A_Silent_Voice.jpg",
+        screenshots: ["images/day_8/ss_1.jpg", "images/day_8/ss_2.jpg", "images/day_8/ss_3.jpg"],
         downloadLink: "###",
         audioLink: null
     },
@@ -340,5 +354,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
 
 
