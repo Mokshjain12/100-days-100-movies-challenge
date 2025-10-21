@@ -100,15 +100,43 @@ const moviesData = [
     },   
     {
         day: 8,
+        title: "My Oni Girl",
+        year: 2024,
+        rating: 7.5,
+        dateSeen: "2025-10-20",
+        genre: "Animation, Adventure, Drama, Family, Fantasy",
+        plot: "A high school student's life takes an unexpected turn when he meets an oni (demon) girl on a quest in the human world.",
+        director: "Tomotaka Shibayama",
+        poster: "images/day_8/my_oni_girl.jpg",
+        screenshots: ["images/day_8/ss_1.jpg", "images/day_8/ss_2.jpg", "images/day_8/ss_3.png"],
+        downloadLink: "https://gplinks.co/yQTExp",
+        audioLink: "images/day_8/my_oni_girl.m4a"
+    },
+    {
+        day: 9,
+        title: "Flavors of Youth",
+        year: 2018,
+        rating: 8.0,
+        dateSeen: "2025-10-21",
+        genre: "Anime, Romance, Animation, Melodrama, Drama, Animated cartoon, Teen",
+        plot: "Three different stories of youth set in different cities of China.",
+        director: " Yoshitaka Takeuchi, Li Haoling, Jiaoshou Yi Xiaoxing",
+        poster: "images/day_9/Flavors_of_Youth.jpg",
+        screenshots: ["images/day_9/ss_1.jpg", "images/day_9/ss_2.jpg", "images/day_9/ss_3.jpg"],
+        downloadLink: "https://gplinks.co/qjDWMwhu",
+        audioLink: "images/day_9/Flavors_of_Youth.mp3"
+    },
+    {
+        day: 10,
         title: "Coming Soon",
         year: 2016,
         rating: 9.5,
-        dateSeen: "2025-10-20",
+        dateSeen: "2025-10-22",
         genre: "Romance, Drama",
         plot: "Coming Soon",
         director: "Coming Soon",
-        poster: "images/day_8/A_Silent_Voice.jpg",
-        screenshots: ["images/day_8/ss_1.jpg", "images/day_8/ss_2.jpg", "images/day_8/ss_3.jpg"],
+        poster: "images/day_10/A_Silent_Voice.jpg",
+        screenshots: ["images/day_10/ss_1.jpg", "images/day_10/ss_2.jpg", "images/day_10/ss_3.jpg"],
         downloadLink: "###",
         audioLink: null
     },
@@ -354,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
 
 
 
