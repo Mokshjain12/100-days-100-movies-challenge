@@ -88,7 +88,7 @@ const moviesData = [
         day: 7,
         title: "The Tunnel to Summer",
         year: 2022,
-        rating: 7.5,
+        rating: 8.5,
         dateSeen: "2025-10-19",
         genre: "Romance, Animation, Science fiction, Fantasy, Drama, Mystery, Supernatural",
         plot: "In a sleepy country town, a traumatized boy and a transfer student from Tokyo stumble upon a time-bending tunnel that may grant them their every wish.",
@@ -382,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
 
 
 
