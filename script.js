@@ -128,10 +128,24 @@ const moviesData = [
     },
     {
         day: 10,
+        title: "Wolf Children ",
+        year: 2012,
+        rating: 9.5,
+        dateSeen: "2025-10-22",
+        genre: "Anime, Animation, Romance, Comedy, Drama",
+        plot: "After her werewolf lover unexpectedly dies in an accident, a young woman must find ways to raise their werewolf son and daughter while keeping their trait hidden from society.",
+        director: "Mamoru Hosoda",
+        poster: "images/day_10/wolf_children.jpg",
+        screenshots: ["images/day_10/ss_1.jpg", "images/day_10/ss_2.jpg", "images/day_10/ss_3.jpg"],
+        downloadLink: "https://gplinks.co/LJc1",
+        audioLink: "images/day_10/wolf_children.m4a"
+    },
+    {
+        day: 11,
         title: "Coming Soon",
         year: 2016,
         rating: 9.5,
-        dateSeen: "2025-10-22",
+        dateSeen: "Back soon",
         genre: "Romance, Drama",
         plot: "Coming Soon",
         director: "Coming Soon",
@@ -382,6 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     handleFilterAndSort();
 });
+
 
 
 
